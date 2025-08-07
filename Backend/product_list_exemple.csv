@@ -1,0 +1,51 @@
+name,price,quantity,item_code,category,description
+Wireless Mouse,13.54,342,ELE-001,Electronics,High-quality wireless mouse for daily use.
+Bluetooth Speaker,53.43,471,ELE-002,Electronics,High-quality bluetooth speaker for daily use.
+Smartphone Stand,96.36,131,ELE-003,Electronics,High-quality smartphone stand for daily use.
+USB-C Cable,11.7,97,ELE-004,Electronics,High-quality usb-c cable for daily use.
+LED Monitor,21.31,256,ELE-005,Electronics,High-quality led monitor for daily use.
+Wireless Charger,36.5,184,ELE-006,Electronics,High-quality wireless charger for daily use.
+Power Bank,42.24,176,ELE-007,Electronics,High-quality power bank for daily use.
+Noise Cancelling Headphones,95.58,175,ELE-008,Electronics,High-quality noise cancelling headphones for daily use.
+Smart Watch,62.35,94,ELE-009,Electronics,High-quality smart watch for daily use.
+HD Webcam,89.01,416,ELE-010,Electronics,High-quality hd webcam for daily use.
+Cotton T-Shirt,90.75,371,CLO-011,Clothing,High-quality cotton t-shirt for daily use.
+Denim Jeans,75.51,347,CLO-012,Clothing,High-quality denim jeans for daily use.
+Running Shoes,73.43,162,CLO-013,Clothing,High-quality running shoes for daily use.
+Baseball Cap,6.83,259,CLO-014,Clothing,High-quality baseball cap for daily use.
+Winter Jacket,90.51,113,CLO-015,Clothing,High-quality winter jacket for daily use.
+Leather Belt,28.97,207,CLO-016,Clothing,High-quality leather belt for daily use.
+Hoodie,15.87,410,CLO-017,Clothing,High-quality hoodie for daily use.
+Socks Pack,37.54,32,CLO-018,Clothing,High-quality socks pack for daily use.
+Formal Shirt,77.04,25,CLO-019,Clothing,High-quality formal shirt for daily use.
+Pajama Set,33.26,69,CLO-020,Clothing,High-quality pajama set for daily use.
+Office Chair,43.68,410,FUR-021,Furniture,High-quality office chair for daily use.
+Wooden Desk,68.71,483,FUR-022,Furniture,High-quality wooden desk for daily use.
+Bookshelf,17.58,461,FUR-023,Furniture,High-quality bookshelf for daily use.
+Nightstand,88.72,469,FUR-024,Furniture,High-quality nightstand for daily use.
+TV Stand,72.06,480,FUR-025,Furniture,High-quality tv stand for daily use.
+Dining Table,42.13,85,FUR-026,Furniture,High-quality dining table for daily use.
+Shoe Rack,76.73,276,FUR-027,Furniture,High-quality shoe rack for daily use.
+Folding Chair,64.67,225,FUR-028,Furniture,High-quality folding chair for daily use.
+Bed Frame,5.14,38,FUR-029,Furniture,High-quality bed frame for daily use.
+Coffee Table,65.79,196,FUR-030,Furniture,High-quality coffee table for daily use.
+Ceramic Mug,19.94,203,KIT-031,Kitchenware,High-quality ceramic mug for daily use.
+Cutlery Set,75.24,81,KIT-032,Kitchenware,High-quality cutlery set for daily use.
+Non-stick Pan,44.97,247,KIT-033,Kitchenware,High-quality non-stick pan for daily use.
+Glass Bowl,92.39,80,KIT-034,Kitchenware,High-quality glass bowl for daily use.
+Blender,6.26,400,KIT-035,Kitchenware,High-quality blender for daily use.
+Rice Cooker,63.03,205,KIT-036,Kitchenware,High-quality rice cooker for daily use.
+Chopping Board,28.5,57,KIT-037,Kitchenware,High-quality chopping board for daily use.
+Toaster,85.63,198,KIT-038,Kitchenware,High-quality toaster for daily use.
+Measuring Cups,88.07,14,KIT-039,Kitchenware,High-quality measuring cups for daily use.
+Water Bottle,86.79,286,KIT-040,Kitchenware,High-quality water bottle for daily use.
+Notebook,12.88,212,STA-041,Stationery,High-quality notebook for daily use.
+Ballpoint Pens,42.12,39,STA-042,Stationery,High-quality ballpoint pens for daily use.
+Sticky Notes,85.74,270,STA-043,Stationery,High-quality sticky notes for daily use.
+Highlighters,47.33,119,STA-044,Stationery,High-quality highlighters for daily use.
+Scissors,59.64,259,STA-045,Stationery,High-quality scissors for daily use.
+Stapler,72.59,54,STA-046,Stationery,High-quality stapler for daily use.
+Paper Clips,33.04,122,STA-047,Stationery,High-quality paper clips for daily use.
+Desk Organizer,14.06,258,STA-048,Stationery,High-quality desk organizer for daily use.
+Whiteboard Markers,43.68,405,STA-049,Stationery,High-quality whiteboard markers for daily use.
+Calendar,27.75,193,STA-050,Stationery,High-quality calendar for daily use.

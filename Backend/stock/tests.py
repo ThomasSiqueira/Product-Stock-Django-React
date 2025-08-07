@@ -1,12 +1,26 @@
 from django.test import TestCase
-from rest_framework.test import APIClient
+from rest_framework.test import APIClient, APITestCase
 from rest_framework import status
-from .models import Product
+from django.core.exceptions import ValidationError
+from .models import Product, StockMovement
 from decimal import Decimal
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
 
-class ProductAPITest(TestCase):
+class ProductAPITest(APITestCase):
     def setUp(self):
-        self.client = APIClient()
+        self.user = User.objects.create_user(username='testuser', password='testpass')
+        response = self.client.post('/api/auth/', {
+            'username': 'testuser',
+            'password': 'testpass'
+        }, format='json')
+        
+        self.assertEqual(response.status_code, 200, msg="JWT login failed in test setup")
+        self.access_token = response.data['access']
+        
+        self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.access_token)
+
+
         self.product_data = {
             'name': 'Test Data',
             'description': 'data used for testing',
@@ -53,3 +67,66 @@ class ProductAPITest(TestCase):
         response = self.client.delete(f'/api/products/{self.product.id}/')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Product.objects.count(), 0)
+
+
+
+class StockMovementTests(APITestCase):
+    def setUp(self):
+        self.product = Product.objects.create(
+            name="Test Product",
+            description="Just a test",
+            category="Test Category",
+            item_code="ITEM001",
+            quantity=100,
+            price=9.99
+        )
+
+    def test_inbound_movement_quantity(self):
+        movement = StockMovement(
+            item_code="ITEM001",
+            quantity=50,
+            movement_type="IN",
+            note="Restocking"
+        )
+        movement.save()
+
+        self.product.refresh_from_db()
+        self.assertEqual(self.product.quantity, 150)
+
+    def test_outbound_movement_quantity(self):
+        movement = StockMovement(
+            item_code="ITEM001",
+            quantity=30,
+            movement_type="OUT",
+            note="Sold items"
+        )
+        movement.save()
+
+        self.product.refresh_from_db()
+        self.assertEqual(self.product.quantity, 70)
+
+    def test_outbound_movement_fails_with_insufficient_stock(self):
+        movement = StockMovement(
+            item_code="ITEM001",
+            quantity=200,
+            movement_type="OUT",
+            note="Too many"
+        )
+
+        with self.assertRaises(ValidationError) as context:
+            movement.save()
+
+        self.assertIn("Not enough stock", str(context.exception))
+
+    def test_movement_fails_if_product_does_not_exist(self):
+        movement = StockMovement(
+            item_code="NONEXISTENT",
+            quantity=10,
+            movement_type="IN",
+            note="Invalid product"
+        )
+
+        with self.assertRaises(ValidationError) as context:
+            movement.save()
+
+        self.assertIn("Product with this code does not exist", str(context.exception))
