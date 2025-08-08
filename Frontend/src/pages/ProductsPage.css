@@ -1,0 +1,105 @@
+.products-page h1 {
+  margin-bottom: 10px;
+
+}
+
+.new-product-btn {
+  margin-bottom: 15px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.new-product-btn:hover {
+  background-color: #0056b3;
+}
+
+.products-page {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.new-product-btn {
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.products-table th,
+.products-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+/* Scrollable table body  */
+.products-table-wrapper {
+  max-height: 68vh; 
+  overflow-y: auto;
+  border: 1px solid #ccc;
+}
+
+/* Make header sticky */
+.products-table thead th {
+  position: sticky;
+  top: 0;
+  background: #f9f9f9;
+  z-index: 1;
+}
+
+.top-table-content{
+  height: 43px;
+  width: 100%;
+  display: flex;
+
+}
+.search-bar {
+  position: absolute;
+  right: 30px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.search-bar select,
+.search-bar input {
+  padding: 6px;
+  font-size: 14px;
+}
+
+.no-results-msg{
+  font-size: 23px;
+}
+
+.edit-btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+}
+.delete-btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 500;
+  color: rgb(179, 44, 44);
+}
+.entry-btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 500;
+  color: rgb(53, 44, 179);
+}
