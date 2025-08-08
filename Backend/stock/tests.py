@@ -81,7 +81,7 @@ class StockMovementTests(APITestCase):
             price=9.99
         )
 
-    def test_inbound_movement_quantity(self):
+    def test_in_movement_quantity(self):
         movement = StockMovement(
             item_code="ITEM001",
             quantity=50,
@@ -93,7 +93,7 @@ class StockMovementTests(APITestCase):
         self.product.refresh_from_db()
         self.assertEqual(self.product.quantity, 150)
 
-    def test_outbound_movement_quantity(self):
+    def test_out_movement_quantity(self):
         movement = StockMovement(
             item_code="ITEM001",
             quantity=30,
@@ -105,7 +105,7 @@ class StockMovementTests(APITestCase):
         self.product.refresh_from_db()
         self.assertEqual(self.product.quantity, 70)
 
-    def test_outbound_movement_fails_with_insufficient_stock(self):
+    def test_out_movement_insufficient_stock(self):
         movement = StockMovement(
             item_code="ITEM001",
             quantity=200,
@@ -118,9 +118,9 @@ class StockMovementTests(APITestCase):
 
         self.assertIn("Not enough stock", str(context.exception))
 
-    def test_movement_fails_if_product_does_not_exist(self):
+    def test_movement_fails_product_does_not_exist(self):
         movement = StockMovement(
-            item_code="NONEXISTENT",
+            item_code="____NONE____",
             quantity=10,
             movement_type="IN",
             note="Invalid product"

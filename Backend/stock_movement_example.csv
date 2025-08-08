@@ -1,0 +1,54 @@
+item_code,quantity,movement_type,note
+ELE-001,50,IN,Initial stock
+ELE-001,12,OUT,Customer order #1001
+ELE-001,8,IN,Supplier restock
+ELE-002,30,IN,Initial stock
+ELE-002,5,OUT,Customer order #1002
+ELE-003,20,IN,Initial stock
+ELE-003,3,OUT,Customer order #1003
+ELE-004,25,IN,Initial stock
+ELE-004,7,OUT,Customer order #1004
+ELE-005,40,IN,Initial stock
+ELE-005,4,OUT,Customer order #1005
+ELE-006,25,IN,Initial stock
+ELE-006,6,OUT,Customer order #1006
+ELE-007,35,IN,Initial stock
+ELE-007,9,OUT,Customer order #1007
+ELE-008,45,IN,Initial stock
+ELE-008,5,OUT,Customer order #1008
+ELE-009,30,IN,Initial stock
+ELE-009,4,OUT,Customer order #1009
+ELE-010,50,IN,Initial stock
+ELE-010,8,OUT,Customer order #1010
+CLO-011,100,IN,Initial stock
+CLO-011,15,OUT,Customer order #1011
+CLO-012,80,IN,Initial stock
+CLO-012,12,OUT,Customer order #1012
+CLO-013,50,IN,Initial stock
+CLO-013,8,OUT,Customer order #1013
+CLO-014,40,IN,Initial stock
+CLO-014,6,OUT,Customer order #1014
+CLO-015,30,IN,Initial stock
+CLO-015,5,OUT,Customer order #1015
+FUR-021,60,IN,Initial stock
+FUR-021,10,OUT,Customer order #1016
+FUR-022,50,IN,Initial stock
+FUR-022,7,OUT,Customer order #1017
+FUR-023,70,IN,Initial stock
+FUR-023,12,OUT,Customer order #1018
+FUR-024,40,IN,Initial stock
+FUR-024,6,OUT,Customer order #1019
+FUR-025,45,IN,Initial stock
+FUR-025,8,OUT,Customer order #1020
+KIT-031,35,IN,Initial stock
+KIT-031,5,OUT,Customer order #1021
+KIT-032,25,IN,Initial stock
+KIT-032,4,OUT,Customer order #1022
+KIT-033,40,IN,Initial stock
+KIT-033,6,OUT,Customer order #1023
+STA-041,50,IN,Initial stock
+STA-041,8,OUT,Customer order #1024
+STA-042,30,IN,Initial stock
+STA-042,5,OUT,Customer order #1025
+STA-043,40,IN,Initial stock
+STA-043,7,OUT,Customer order #1026

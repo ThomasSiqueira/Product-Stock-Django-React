@@ -23,7 +23,7 @@ class StockMovement(models.Model):
     item_code = models.CharField(max_length=30)
     quantity = models.PositiveIntegerField()
     movement_type = models.CharField(max_length=3, choices=MOVEMENT_CHOICES)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    movement_date = models.DateTimeField(auto_now_add=True)
     note = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -58,3 +58,23 @@ class StockMovement(models.Model):
 
             product.save()
             super().save(*args, **kwargs)
+            
+    def delete(self, *args, **kwargs):
+        from django.db import transaction
+
+        with transaction.atomic():
+            try:
+                product = Product.objects.get(item_code=self.item_code)
+            except Product.DoesNotExist:
+                raise ValidationError("Product with this code does not exist.")
+
+            # Reverse the stock effect of this movement
+            if self.movement_type == 'IN':
+                if product.quantity < self.quantity:
+                    raise ValidationError("Cannot delete this movement, it would cause negative stock.")
+                product.quantity -= self.quantity
+            elif self.movement_type == 'OUT':
+                product.quantity += self.quantity
+
+            product.save()
+            super().delete(*args, **kwargs)
