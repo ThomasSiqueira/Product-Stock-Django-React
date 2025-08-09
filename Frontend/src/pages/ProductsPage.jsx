@@ -6,11 +6,12 @@ import { MdDeleteOutline } from "react-icons/md";
 import { FaRegPlusSquare } from "react-icons/fa";
 import AddMovement from '../components/AddMoviment';
 import DeleteProduct from '../components/DeleteProduct';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 
 function ProductsPage() {
   const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const [searchField, setSearchField] = useState('name');
   const [searchQuery, setSearchQuery] = useState('');
@@ -67,13 +68,15 @@ function ProductsPage() {
       if (!res.ok) {
         throw new Error('Failed to fetch products: ' + res.status);
       }
+      else {
+
 
       const json = await res.json();
       setProducts(json);
-
+      setLoading(false);
+    }
     } catch (err) {
       console.error(err);
-      setError(err.message);
     }
   };
 
@@ -98,7 +101,7 @@ function ProductsPage() {
 
 
 
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <LoadingSpinner message="Loading products..." />;
 
   return (
     <div className="products-page">

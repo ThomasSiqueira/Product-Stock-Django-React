@@ -4,10 +4,11 @@ import { MdDeleteOutline } from "react-icons/md";
 import { RiFileInfoLine } from "react-icons/ri";
 import ShowProduct from '../components/ShowProduct';
 import DeleteMovement from '../components/DeleteMoviment';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 function StockEntryPage() {
   const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [searchField, setSearchField] = useState('name');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -63,10 +64,10 @@ function StockEntryPage() {
       const json = await res.json();
       console.log(json);
       setProducts(json);
+      setLoading(false);
 
     } catch (err) {
       console.error(err);
-      setError(err.message);
     }
   };
 
@@ -76,7 +77,7 @@ function StockEntryPage() {
 
 
 
-  if (error) return <div>Error: {error}</div>;
+ if (loading) return <LoadingSpinner message="Loading products..." />;
 
   return (
     <div className="products-page">
