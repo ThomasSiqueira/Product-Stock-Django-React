@@ -82,8 +82,8 @@ python manage.py migrate
 - You can reimport the generic item on the csv files via:
 
 ```bash
-python manage.py import_products
-python manage.py import_movements
+python manage.py import_products product_list_exemple.csv
+python manage.py import_movements stock_movement_example.csv
 ```
 
 ## Testing
