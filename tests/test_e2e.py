@@ -92,7 +92,7 @@ class TestStockMovementFlow(unittest.TestCase):
         driver.find_element(By.NAME, "password").send_keys("adminpass" + Keys.RETURN)
         wait.until(EC.url_contains("/products"))
 
-        # ADD PRODUCT for stock testing
+        # ADD PRODUCT 
         driver.get("http://localhost:3000/products")
         wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "new-product-btn"))).click()
         modal = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "modal")))

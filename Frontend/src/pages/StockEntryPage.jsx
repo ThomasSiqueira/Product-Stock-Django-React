@@ -123,6 +123,7 @@ function StockEntryPage() {
                 <tr key={p.id}>
                   <td>{p.item_code}</td>
                   <td>{p.quantity}</td>
+                  <td>{p.movement_type}</td>
                   <td>{new Date(p.movement_date).toLocaleString()}</td>
                   <td>
                     <button className="edit-btn" onClick={() => {

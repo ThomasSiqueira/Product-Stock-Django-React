@@ -130,3 +130,59 @@ class StockMovementTests(APITestCase):
             movement.save()
 
         self.assertIn("Product with this code does not exist", str(context.exception))
+        
+class StockMovementAPITest(APITestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='testpass')
+        response = self.client.post('/api/auth/', {
+            'username': 'testuser',
+            'password': 'testpass'
+        }, format='json')
+        self.access_token = response.data['access']
+        self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.access_token)
+
+        self.product = Product.objects.create(
+            name="Test Product",
+            description="Just a test",
+            category="Test Category",
+            item_code="ITEM001",
+            quantity=100,
+            price=9.99
+        )
+
+    def test_create_in_movement(self):
+        data = {
+            "item_code": "ITEM001",
+            "quantity": 10,
+            "movement_type": "IN",
+            "note": "Restock via API"
+        }
+        response = self.client.post('/api/stock/', data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.product.refresh_from_db()
+        self.assertEqual(self.product.quantity, 110)
+
+    def test_create_out_movement(self):
+        data = {
+            "item_code": "ITEM001",
+            "quantity": 5,
+            "movement_type": "OUT",
+            "note": "Sale via API"
+        }
+        response = self.client.post('/api/stock/', data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.product.refresh_from_db()
+        self.assertEqual(self.product.quantity, 95)
+        
+    def test_create_out_movement_insufficient_stock(self):
+        data = {
+            "item_code": "ITEM001",
+            "quantity": 120,
+            "movement_type": "OUT",
+            "note": "Sale via API"
+        }
+        response = self.client.post('/api/stock/', data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST) 
+        self.assertIn("Not enough stock", str(response.data))  
+        self.product.refresh_from_db()
+        self.assertEqual(self.product.quantity, 100)
