@@ -86,7 +86,7 @@ python manage.py import_products product_list_exemple.csv
 python manage.py import_movements stock_movement_example.csv
 ```
 
-## Testing
+## Testing with Unittest
 
 This project includes unit tests for both the Product API endpointS and the StockMovement model.  
 These tests ensure that the Django REST Framework backend behaves correctly and enforces the necessary rules for inventory management.
@@ -129,7 +129,7 @@ Covers the Stock Movement via REST API endpoints
 3. **`test_create_out_movement_insufficient_stock`** – Ensures that attempting to remove more items than are in stock returns a `400 BAD REQUEST` with the message `"Not enough stock"`, and leaves the quantity unchanged.  
 
 
-### Running the Unit Tests
+### Running the Tests
 From the backend folder, run:
 
 
@@ -137,6 +137,7 @@ From the backend folder, run:
 python manage.py test
 ```
 
+## Selenium Test
 This project also includes **end-to-end (E2E) tests** written with Python’s `unittest` framework and **Selenium WebDriver**.  
 These tests simulate real user interactions in the browser to verify that the frontend (React) and backend (Django REST API) work together correctly.
 
